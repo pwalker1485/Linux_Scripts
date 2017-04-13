@@ -19,3 +19,5 @@ LC_ALL=en_GB.UTF-8
     update-locale LC_ALL=$LC_ALL
 
     echo "locale settings all now set to English (GB)"
+
+    exit 0
