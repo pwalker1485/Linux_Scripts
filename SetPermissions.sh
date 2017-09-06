@@ -5,8 +5,18 @@
 ###################### written by Phil Walker ####################################
 ##################################################################################
 
+# Amend variables as per requirement
+
+#########################
+####### Variables #######
+#########################
+
 USER="username"
 GROUP="groupname"
+
+##########################
+### script starts here ###
+##########################
 
 # exit this bash script if any statement returns a non-true return value
 set -e
