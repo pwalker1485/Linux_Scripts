@@ -7,16 +7,24 @@
 
 # Amend variables to suit locale required
 
+#########################
+####### Variables #######
+#########################
+
 LANGUAGE='"en_GB:en"'
 LANG=en_GB.UTF-8
 LC_ALL=en_GB.UTF-8
 
-    apt-get install -y locales && sed -i -e "s/# $LANG.*/$LANG.UTF-8 UTF-8/" /etc/locale.gen
-    dpkg-reconfigure --frontend=noninteractive locales
-    update-locale LANG=$LANG
-    update-locale LANGUAGE=$LANGUAGE
-    update-locale LC_ALL=$LC_ALL
+##########################
+### script starts here ###
+##########################
 
-    echo "locale settings all now set to English (GB)"
+apt-get install -y locales && sed -i -e "s/# $LANG.*/$LANG.UTF-8 UTF-8/" /etc/locale.gen
+dpkg-reconfigure --frontend=noninteractive locales
+update-locale LANG=$LANG
+update-locale LANGUAGE=$LANGUAGE
+update-locale LC_ALL=$LC_ALL
 
-    exit 0
+echo "locale settings all now set to English (GB)"
+
+exit 0
