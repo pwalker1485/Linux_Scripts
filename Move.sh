@@ -5,8 +5,6 @@
 ###################### written by Phil Walker ####################################
 ##################################################################################
 
-#!/bin/bash
-
 #amend variable assignments for source and destination folders - example below is to move all folders containing (2016) in the name to a new location
 #specific file types could also be moved or all contents of the source folder
 
