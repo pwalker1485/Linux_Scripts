@@ -18,6 +18,10 @@ Src="/path/to/source/folder"
 #Directory to move directories/files to
 Dst="/path/to/destination/folder"
 
+##########################
+### script starts here ###
+##########################
+
 echo "All folders with (2016) in the name will now be moved from $Src to $Dst"
 
 echo
