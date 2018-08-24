@@ -1,12 +1,17 @@
 #!/bin/bash
 
-##################################################################################
-################ Move folders or files to a new location #########################
-###################### written by Phil Walker ####################################
-##################################################################################
+###############################################################################
+################ Move folders or file types to a new location #################
+######################### written by Phil Walker ##############################
+###############################################################################
 
-#amend variable assignments for source and destination folders
-#example below is to move all folders containing (2016) in the name to a new location
+#amend variable assignments for source/destination folders and strings for case statement as per your requirements
+
+#The example below prompts the user to enter 720p/1080p/3D or 4K, then moves any folder with the string specified
+#(enclosed in brackets) within the name to the destination folder.
+#If any other value is entered nothing is moved
+#An if statement is used to see if 4K is specified so that a different path can be assigend to the DIR variable
+
 #specific file types could also be moved or all contents of the source folder
 
 #########################
@@ -14,24 +19,58 @@
 #########################
 
 #Directory to move directories/files from
-Src="/path/to/source/folder"
+SRC_DIR="/media/Downloads/Downloads/Completed_Downloads"
 
-#Directory to move directories/files to
-Dst="/path/to/destination/folder"
+#########################
+####### Functions #######
+#########################
+
+function postMoveCheck() {
+
+local CHECK_DIR=$(ls /media/Downloads/Downloads/Completed_Downloads/ | grep "$FILM" | wc -l)
+
+if [ $CHECK_DIR = "0" ]; then
+  echo "All $FILM folders successfully moved to $DIR"
+  echo
+else
+  echo "Data transfer failed, please run again..."
+  echo
+  exit 1
+fi
+
+}
 
 ##########################
 ### script starts here ###
 ##########################
 
-echo "All folders with (2016) in the name will now be moved from $Src to $Dst"
+read -p "Enter the Film quality: " FILM
+case $FILM in
+  720p|1080p|3D|4K)
 
-echo
-echo "Moving..."
-echo
+    #Directory to move directories/files to
+    DIR="/media/Films/Films/Blu-ray/$FILM/"
+    DIR4K="/media/4K/4K/4K_Films/"
 
-mv $Src/*\(2016\) $Dst
+    if [ $FILM = "4K" ];then
+      DIR=$DIR4K
+    fi
 
-echo "All folders successfully moved to $Dst"
-echo
+    echo
+    echo "All folders with ($FILM) in the name will now be moved from $SRC_DIR to $DIR"
 
-exit 0
+    echo
+    echo "Moving..."
+    echo
+
+    mv $SRC_DIR/*\($FILM\)* $DIR
+
+    postMoveCheck
+
+    exit 0
+    ;;
+
+  *)
+    echo "Incorrect Film quality entered, nothing has been moved"
+    ;;
+  esac
