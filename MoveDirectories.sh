@@ -1,39 +1,40 @@
 #!/bin/bash
 
-########################################################################
-############## Move downloaded films to correct directory ##############
-######################## written by Phil Walker ########################
-########################################################################
+############################################################################
+# Move directories with names that contain specific strings to destination #
+# directories based on the string that is matched                          #
+######################### written by Phil Walker ###########################
+############################################################################
 
-# This method uses 'FOR' loops and 'IF' statements to search for a pattern included
-# in a directory name and then moves any matching directories to a specific alternative
-# directory
-# Wilcards are used so that any directory that includes the pattern at any point is
+# This method uses 'FOR' loops and 'IF' statements to search for a string included
+# in a directory name and then move any matching directories to a specific destination
+# directory based on the string that is matched
+# Wilcards are used so that any directories that includes the string at any point are
 # moved
 
 #########################
-####### Variables #######
+#       Variables       #
 #########################
 
 #Directory to move directories/files from
 SRC_DIR="/path/to/source/directory"
-DEST_DIR1="/destination/folder/for/pattern/one"
-DEST_DIR2="/destination/folder/for/pattern/two"
-DEST_DIR3="/destination/folder/for/pattern/three"
-DEST_DIR4="/destination/folder/for/pattern/four"
+DEST_DIR1="/destination/folder/for/string/one"
+DEST_DIR2="/destination/folder/for/string/two"
+DEST_DIR3="/destination/folder/for/string/three"
+DEST_DIR4="/destination/folder/for/string/four"
 #Temp text file
-#FILMLIST="/tmp/filmdirectories.txt"
+#FILMLIST="/tmp/directories.txt"
 
 #########################
-####### Functions #######
+#       Functions       #
 #########################
 
 function postMoveCheck() {
 
-local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "720p|1080p|3D|4K" | wc -l)
+local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "string1|string2|string3|string4" | wc -l)
 
 if [ "$CHECK_DIR" -eq "0" ]; then
-  echo "All 720p/1080p/3D and 4K film folders successfully moved"
+  echo "All string1/string2/string3 and string4 directories successfully moved"
   echo
 
 else
@@ -45,93 +46,93 @@ fi
 
 }
 
-function moveFilms720() {
+function movestring1() {
 IFS=$'\n'
-#  for FILM in $(cat $FILMLIST); do
-  for FILM in */; do
+#  for d in $(cat $FILMLIST); do
+  for d in */; do
 
-    if [[ $FILM = *"720p"* ]]; then
-      echo "Moving '$FILM' to '$DEST_DIR1'"
-      mv "$SRC_DIR"/"$FILM" "$DEST_DIR1"
+    if [[ $d = *"string1"* ]]; then
+      echo "Moving '$d' to '$DEST_DIR1'"
+      mv "$SRC_DIR"/"$d" "$DEST_DIR1"
 
   fi
 done
 }
 
-function moveFilms1080() {
+function movestring2() {
 IFS=$'\n'
-#  for FILM in $(cat $FILMLIST); do
-  for FILM in */; do
+#  for d in $(cat $FILMLIST); do
+  for d in */; do
 
-    if [[ $FILM = *"1080p"* ]]; then
+    if [[ $d = *"string2"* ]]; then
 
-      echo "Moving '$FILM' to '$DEST_DIR2'"
-      mv "$SRC_DIR"/"$FILM" "$DEST_DIR2"
+      echo "Moving '$d' to '$DEST_DIR2'"
+      mv "$SRC_DIR"/"$d" "$DEST_DIR2"
 
   fi
 done
 }
 
-function moveFilms3D() {
+function movestring3() {
 IFS=$'\n'
-#  for FILM in $(cat $FILMLIST); do
-  for FILM in */; do
+#  for d in $(cat $FILMLIST); do
+  for d in */; do
 
-    if [[ $FILM = *"3D"* ]]; then
+    if [[ $d = *"string3"* ]]; then
 
-      echo "Moving '$FILM' to '$DEST_DIR3'"
-      mv "$SRC_DIR"/"$FILM" "$DEST_DIR3"
+      echo "Moving '$d' to '$DEST_DIR3'"
+      mv "$SRC_DIR"/"$d" "$DEST_DIR3"
 
   fi
 done
 }
 
-function moveFilms4K() {
+function movestring4() {
 IFS=$'\n'
-#  for FILM in $(cat $FILMLIST); do
-  for FILM in */; do
+#  for d in $(cat $FILMLIST); do
+  for d in */; do
 
-    if [[ $FILM = *"4K"* ]]; then
+    if [[ $d = *"string4"* ]]; then
 
-      echo "Moving '$FILM' to '$DEST_DIR4'"
-      mv "$SRC_DIR"/"$FILM" "$DEST_DIR4"
+      echo "Moving '$d' to '$DEST_DIR4'"
+      mv "$SRC_DIR"/"$d" "$DEST_DIR4"
 
   fi
 done
 }
 
 ##########################
-### script starts here ###
+#   script starts here   #
 ##########################
 
 cd $SRC_DIR
 
-#find * -maxdepth 0 -type d > /tmp/filmdirectories.txt
+#find * -maxdepth 0 -type d > /tmp/directories.txt
 
-echo "Checking for 720p films in '$SRC_DIR'..."
+echo "Checking for string one in '$SRC_DIR'..."
 echo "--------------------------------------"
-moveFilms720
-echo "--------------------------------------"
-
-echo
-echo "Checking for 1080p films in '$SRC_DIR'..."
-echo "--------------------------------------"
-moveFilms1080
+movestring1
 echo "--------------------------------------"
 
 echo
-echo "Checking for 3D films in '$SRC_DIR'..."
+echo "Checking for string two in '$SRC_DIR'..."
 echo "--------------------------------------"
-moveFilms3D
+movestring2
 echo "--------------------------------------"
 
 echo
-echo "Checking for 4K films in '$SRC_DIR'..."
+echo "Checking for string three in '$SRC_DIR'..."
 echo "--------------------------------------"
-moveFilms4K
+movestring3
 echo "--------------------------------------"
 
-echo "Checking all films have been moved successfully..."
+echo
+echo "Checking for string four in '$SRC_DIR'..."
+echo "--------------------------------------"
+movestring4
+echo "--------------------------------------"
+
+echo "Checking all directories have been moved successfully..."
 echo
 postMoveCheck
 

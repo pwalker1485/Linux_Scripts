@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ########################################################################
-####### Rename all directories and files contained within those ########
-####### directories, prompting the user to specify the new name ########
+# Rename all directories and files contained within those directories  #
+# prompting the user to specify the new directory and file names       #
 ######################## written by Phil Walker ########################
 ########################################################################
 
@@ -10,10 +10,12 @@
 # and names of the files contained in the directories, prompt the user to specify
 # a new directory name and then rename the directory or file to that new name
 
+# mv command uses verbose option to confirm what the directory/file was renamed from and to
+
 # COMPL_DL variable can be changed based on the requirements
 
 #########################
-####### Variables #######
+#       Variables       #
 #########################
 
 # Source directory
@@ -24,7 +26,7 @@ DIRLISTING="/tmp/directorylisting.txt"
 FILELISTING="/tmp/filelisting.txt"
 
 ##########################
-### script starts here ###
+#   script starts here   #
 ##########################
 
 # Change directory into the source directory

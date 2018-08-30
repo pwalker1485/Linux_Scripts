@@ -1,7 +1,9 @@
 #!/bin/bash
 
 ########################################################################
-############## Move downloaded films to correct directory ##############
+# Move directories with names containing specific strings (set in the  #
+# the case statement) to the corresponding directory that also contain #
+# that same string                                                     #
 ######################## written by Phil Walker ########################
 ########################################################################
 

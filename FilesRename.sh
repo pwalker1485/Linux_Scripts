@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ########################################################################
-########## Rename files contained in the directory specified ###########
-############ prompting the user to specify the new name ################
+# Rename files contained in the directory specified prompting the user #
+# to specify the new file name                                         #
 ######################## written by Phil Walker ########################
 ########################################################################
 
@@ -10,10 +10,12 @@
 # of all files stored in the directort specified in the variable COMPL_DL.
 # The user is then prompted for the new name and the file is renamed
 
+# mv command uses verbose option to confirm what the file was renamed from and to
+
 # COMPL_DL variable can be changed based on the requirements
 
 #########################
-####### Variables #######
+#       Variables       #
 #########################
 
 COMPL_DL="/path/to/source/directory"
