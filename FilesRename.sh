@@ -20,6 +20,28 @@
 
 COMPL_DL="/path/to/source/directory"
 
+#########################
+#       Functions       #
+#########################
+
+function checkDirectory() {
+
+local ITEMS=$(ls $COMPL_DL | wc -l)
+
+if [[ $ITEMS -eq "0" ]]; then
+  echo "No files found, nothing to do"
+  exit 1
+fi
+
+}
+
+##########################
+#   script starts here   #
+##########################
+
+# Check to see if any files exist before executing commands
+checkDirectory
+
 cd $COMPL_DL
 
 find * -maxdepth 0 -type f > /tmp/tvfilelisting.txt

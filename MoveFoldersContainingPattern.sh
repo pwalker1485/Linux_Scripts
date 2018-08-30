@@ -24,6 +24,17 @@ SRC_DIR="/path/to/source/directory"
 #       Functions       #
 #########################
 
+function checkDirectory() {
+
+local ITEMS=$(ls $SRC_DIR | wc -l)
+
+if [[ $ITEMS -eq "0" ]]; then
+  echo "No files found, nothing to do"
+  exit 1
+fi
+
+}
+
 function postMoveCheck() {
 
 local CHECK_DIR=$(ls "$SRC_DIR" | grep "$FILM" | wc -l)
@@ -44,6 +55,9 @@ fi
 ##########################
 #   script starts here   #
 ##########################
+
+# Check to see if any files or folders exist before executing commands
+checkDirectory
 
 read -p "Enter the Film quality: " FILM
 case $FILM in

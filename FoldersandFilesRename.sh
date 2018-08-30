@@ -25,9 +25,27 @@ DIRLISTING="/tmp/directorylisting.txt"
 # text file listing all files contained within those directories
 FILELISTING="/tmp/filelisting.txt"
 
+#########################
+#       Functions       #
+#########################
+
+function checkDirectory() {
+
+local ITEMS=$(ls $COMPL_DL | wc -l)
+
+if [[ $ITEMS -eq "0" ]]; then
+  echo "No files found, nothing to do"
+  exit 1
+fi
+
+}
+
 ##########################
 #   script starts here   #
 ##########################
+
+# Check to see if any files or folders exist before executing commands
+checkDirectory
 
 # Change directory into the source directory
 cd $COMPL_DL

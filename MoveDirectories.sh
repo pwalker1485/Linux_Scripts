@@ -30,19 +30,13 @@ DEST_DIR4="/destination/folder/for/string/four"
 #       Functions       #
 #########################
 
-function postMoveCheck() {
+function checkDirectory() {
 
-local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "string1|string2|string3|string4" | wc -l)
+local ITEMS=$(ls $SRC_DIR | wc -l)
 
-if [ "$CHECK_DIR" -eq "0" ]; then
-  echo "All string1/string2/string3 and string4 directories successfully moved"
-  echo
-
-else
-  echo "Data transfer failed, please run again..."
-  echo
+if [[ $ITEMS -eq "0" ]]; then
+  echo "No directories or files found, nothing to do"
   exit 1
-
 fi
 
 }
@@ -102,9 +96,29 @@ IFS=$'\n'
 done
 }
 
+function postMoveCheck() {
+
+local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "string1|string2|string3|string4" | wc -l)
+
+if [ "$CHECK_DIR" -eq "0" ]; then
+  echo "All string1/string2/string3 and string4 directories successfully moved"
+  echo
+
+else
+  echo "Data transfer failed, please run again..."
+  echo
+  exit 1
+
+fi
+
+}
+
 ##########################
 #   script starts here   #
 ##########################
+
+# Check to see if any files or folders exist before executing commands
+checkDirectory
 
 cd $SRC_DIR
 
