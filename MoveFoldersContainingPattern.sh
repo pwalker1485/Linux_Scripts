@@ -16,7 +16,7 @@
 #########################
 
 #Directory to move directories/files from
-SRC_DIR="/Users/Phil/Desktop/Folder"
+SRC_DIR="/path/to/source/directory"
 
 #########################
 ####### Functions #######
@@ -48,8 +48,8 @@ case $FILM in
   720p|1080p|3D|4K)
 
     #Directory to move directories/files to
-    DIR="/Users/Phil/Desktop/Films/$FILM/"
-    DIR4K="/Users/Phil/Desktop/4K/"
+    DIR="/path/to/destination/directory/$FILM/"
+    DIR4K="/path/to/destination/directory/4K/"
 
     if [ $FILM = "4K" ];then
       DIR=$DIR4K
