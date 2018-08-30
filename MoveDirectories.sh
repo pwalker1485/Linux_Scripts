@@ -16,8 +16,9 @@
 #       Variables       #
 #########################
 
-#Directory to move directories/files from
+# Directory to move directories/files from
 SRC_DIR="/path/to/source/directory"
+# Directories to move directories/files to
 DEST_DIR1="/destination/folder/for/string/one"
 DEST_DIR2="/destination/folder/for/string/two"
 DEST_DIR3="/destination/folder/for/string/three"
