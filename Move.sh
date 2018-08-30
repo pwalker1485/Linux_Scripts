@@ -1,25 +1,22 @@
 #!/bin/bash
 
-###############################################################################
-################ Move folders or file types to a new location #################
-######################### written by Phil Walker ##############################
-###############################################################################
+########################################################################
+############## Move downloaded films to correct directory ##############
+######################## written by Phil Walker ########################
+########################################################################
 
-#amend variable assignments for source/destination folders and strings for case statement as per your requirements
-
-#The example below prompts the user to enter 720p/1080p/3D or 4K, then moves any folder with the string specified
-#(enclosed in brackets) within the name to the destination folder.
-#If any other value is entered nothing is moved
-#An if statement is used to see if 4K is specified so that a different path can be assigend to the DIR variable
-
-#specific file types could also be moved or all contents of the source folder
+# This method prompts the user to enter the film quality they wish to be moved
+# from the download directory to the correct relevant destination directory
+# (They can enter any of the following 720p|1080p|3D|4K)
+# A case statement is then used to search for the string pattern and then move
+# any directory found that contains that string if its enclosed in ()
 
 #########################
 ####### Variables #######
 #########################
 
 #Directory to move directories/files from
-SRC_DIR="/media/Downloads/Downloads/Completed_Downloads"
+SRC_DIR="/Users/Phil/Desktop/Folder"
 
 #########################
 ####### Functions #######
@@ -27,12 +24,14 @@ SRC_DIR="/media/Downloads/Downloads/Completed_Downloads"
 
 function postMoveCheck() {
 
-local CHECK_DIR=$(ls /media/Downloads/Downloads/Completed_Downloads/ | grep "$FILM" | wc -l)
+local CHECK_DIR=$(ls "$SRC_DIR" | grep "$FILM" | wc -l)
 
-if [ $CHECK_DIR = "0" ]; then
+if [ $CHECK_DIR -eq "0" ]; then
+  echo
   echo "All $FILM folders successfully moved to $DIR"
   echo
 else
+  echo
   echo "Data transfer failed, please run again..."
   echo
   exit 1
@@ -49,8 +48,8 @@ case $FILM in
   720p|1080p|3D|4K)
 
     #Directory to move directories/files to
-    DIR="/media/Films/Films/Blu-ray/$FILM/"
-    DIR4K="/media/4K/4K/4K_Films/"
+    DIR="/Users/Phil/Desktop/Films/$FILM/"
+    DIR4K="/Users/Phil/Desktop/4K/"
 
     if [ $FILM = "4K" ];then
       DIR=$DIR4K
@@ -63,7 +62,7 @@ case $FILM in
     echo "Moving..."
     echo
 
-    mv $SRC_DIR/*\($FILM\)* $DIR
+    mv -v $SRC_DIR/*\($FILM\)* $DIR
 
     postMoveCheck
 
@@ -71,6 +70,11 @@ case $FILM in
     ;;
 
   *)
-    echo "Incorrect Film quality entered, nothing has been moved"
+
+    echo "Incorrect film quality entered, nothing has been moved"
+
     ;;
+
   esac
+
+  exit 0
