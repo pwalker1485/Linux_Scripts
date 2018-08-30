@@ -34,7 +34,7 @@ function checkDirectory() {
 local ITEMS=$(ls $COMPL_DL | wc -l)
 
 if [[ $ITEMS -eq "0" ]]; then
-  echo "No files found, nothing to do"
+  echo "No directories or files found, nothing to do"
   exit 1
 fi
 

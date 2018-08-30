@@ -29,7 +29,7 @@ function checkDirectory() {
 local ITEMS=$(ls $SRC_DIR | wc -l)
 
 if [[ $ITEMS -eq "0" ]]; then
-  echo "No files found, nothing to do"
+  echo "No directories found, nothing to do"
   exit 1
 fi
 
