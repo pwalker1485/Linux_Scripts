@@ -7,7 +7,7 @@
 ########################################################################
 
 # Script uses a 'For' loop to read each line of a text file that contains the file names
-# of all files stored in the directort specified in the variable COMPL_DL.
+# of all files stored in the directory specified in the variable COMPL_DL.
 # The user is then prompted for the new name and the file is renamed
 
 # mv command uses verbose option to confirm what the file was renamed from and to

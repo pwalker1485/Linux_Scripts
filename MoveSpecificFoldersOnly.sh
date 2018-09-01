@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ########################################################################
-# Move directories with names containing specific strings (set in the  #
-# the case statement) to the corresponding directory that also contain #
-# that same string                                                     #
+# Move directories with names containing specific integers/characters  #
+# (set in the case statement) to the corresponding directory that also #
+# contain that same integers/characters in the name                    #
 ######################## written by Phil Walker ########################
 ########################################################################
 
 # This method prompts the user to enter the film quality they wish to be moved
 # from the download directory to the correct relevant destination directory
-# (They can enter any of the following 720p|1080p|3D|4K)
-# A case statement is then used to search for the string pattern and then move
-# any directory found that contains that string if its enclosed in ()
+# (They can enter any of the following 720p|1080p|3D|4K).
+# A case statement is then used to test strings against the patterns specified
+# and then move any directory found that contains that pattern if its enclosed in ()
 
 #########################
 #       Variables       #
