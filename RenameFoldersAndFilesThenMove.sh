@@ -12,7 +12,7 @@
 
 # Script uses 'For' loops to read each line of text files that contain the directory names
 # and names of the files contained in the directories, prompt the user to specify
-# a new directory name and then rename the directory or file to that new name
+# a new directory/file name and then rename the directory/file to that new name
 
 # mv command uses verbose option to confirm what the directory/file was renamed from and to
 
@@ -36,10 +36,10 @@ DIRLISTING="/tmp/directorylisting.txt"
 # text file listing all files contained within those directories
 FILELISTING="/tmp/filelisting.txt"
 # Directories to move directories/files to
-DEST_DIR1="/destination/folder/for/string/one"
-DEST_DIR2="/destination/folder/for/string/two"
-DEST_DIR3="/destination/folder/for/string/three"
-DEST_DIR4="/destination/folder/for/string/four"
+DEST_DIR1="/destination/folder/for/integer/character/one"
+DEST_DIR2="/destination/folder/for/integer/character/two"
+DEST_DIR3="/destination/folder/for/integer/character/three"
+DEST_DIR4="/destination/folder/for/integer/character/four"
 
 #########################
 #       Functions       #
@@ -146,10 +146,10 @@ done
 
 function postMoveCheck() {
 
-local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "string1|string2|string3|string4" | wc -l)
+local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "integer/character1|integer/character2|integer/character3|integer/character4" | wc -l)
 
 if [ "$CHECK_DIR" -eq "0" ]; then
-  echo "All string1/string2/string3 and string4 directories successfully moved"
+  echo "'All integer/character1'/'integer/character2'/'integer/character3' and 'integer/character4' directories successfully moved"
   echo
 
 else
@@ -172,25 +172,25 @@ cd $SRC_DIR
 renameDirectories
 renameFiles
 
-echo "Checking for string one in '$SRC_DIR'..."
+echo "Checking for int/char one in '$SRC_DIR'..."
 echo "--------------------------------------"
 movestring1
 echo "--------------------------------------"
 
 echo
-echo "Checking for string two in '$SRC_DIR'..."
+echo "Checking for int/char two in '$SRC_DIR'..."
 echo "--------------------------------------"
 movestring2
 echo "--------------------------------------"
 
 echo
-echo "Checking for string three in '$SRC_DIR'..."
+echo "Checking for int/char three in '$SRC_DIR'..."
 echo "--------------------------------------"
 movestring3
 echo "--------------------------------------"
 
 echo
-echo "Checking for string four in '$SRC_DIR'..."
+echo "Checking for int/char four in '$SRC_DIR'..."
 echo "--------------------------------------"
 movestring4
 echo "--------------------------------------"
