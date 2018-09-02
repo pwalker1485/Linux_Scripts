@@ -12,13 +12,13 @@
 
 # mv command uses verbose option to confirm what the file was renamed from and to
 
-# COMPL_DL variable can be changed based on the requirements
+# SRC_DIR variable can be changed based on the requirements
 
 #########################
 #       Variables       #
 #########################
 
-COMPL_DL="/path/to/source/directory"
+SRC_DIR="/path/to/source/directory"
 
 #########################
 #       Functions       #
@@ -26,7 +26,7 @@ COMPL_DL="/path/to/source/directory"
 
 function checkDirectory() {
 
-local ITEMS=$(ls $COMPL_DL | wc -l)
+local ITEMS=$(ls $SRC_DIR | wc -l)
 
 if [[ $ITEMS -eq "0" ]]; then
   echo "No files found, nothing to do"
@@ -42,7 +42,7 @@ fi
 # Check to see if any files exist before executing commands
 checkDirectory
 
-cd $COMPL_DL
+cd $SRC_DIR
 
 find * -maxdepth 0 -type f > /tmp/tvfilelisting.txt
 

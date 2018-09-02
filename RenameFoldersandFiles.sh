@@ -12,14 +12,14 @@
 
 # mv command uses verbose option to confirm what the directory/file was renamed from and to
 
-# COMPL_DL variable can be changed based on the requirements
+# SRC_DIR variable can be changed based on the requirements
 
 #########################
 #       Variables       #
 #########################
 
 # Source directory
-COMPL_DL="/path/to/source/directory"
+SRC_DIR="/path/to/source/directory"
 # text file listing all directories in the source directory
 DIRLISTING="/tmp/directorylisting.txt"
 # text file listing all files contained within those directories
@@ -31,7 +31,7 @@ FILELISTING="/tmp/filelisting.txt"
 
 function checkDirectory() {
 
-local ITEMS=$(ls $COMPL_DL | wc -l)
+local ITEMS=$(ls $SRC_DIR | wc -l)
 
 if [[ $ITEMS -eq "0" ]]; then
   echo "No directories or files found, nothing to do"
@@ -48,7 +48,7 @@ fi
 checkDirectory
 
 # Change directory into the source directory
-cd $COMPL_DL
+cd $SRC_DIR
 
 # write directory names to txt file
 find * -maxdepth 0 -type d > /tmp/directorylisting.txt
