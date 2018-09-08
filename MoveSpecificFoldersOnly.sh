@@ -9,9 +9,11 @@
 
 # This method prompts the user to enter the film quality they wish to be moved
 # from the download directory to the correct relevant destination directory
-# (They can enter any of the following 720p|1080p|3D|4K).
-# A case statement is then used to test strings against the patterns specified
-# and then move any directory found that contains that pattern if its enclosed in ()
+# (They can enter any of the following 720p, 1080p, 3D or 4K).
+# A case statement is then used to test strings (found in the source directory)
+# for the integers/characters specified and then move any directory found
+# to contain those integers/characters within parentheses to the destination
+# directory
 
 #########################
 #       Variables       #
