@@ -42,12 +42,12 @@ fi
 
 }
 
-function movestring1() {
+function move1() {
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
 
-    if [[ $d = *"string1"* ]]; then
+    if [[ $d = *"int/char1"* ]]; then
       echo "Moving '$d' to '$DEST_DIR1'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR1"
 
@@ -55,12 +55,12 @@ IFS=$'\n'
 done
 }
 
-function movestring2() {
+function move2() {
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
 
-    if [[ $d = *"string2"* ]]; then
+    if [[ $d = *"int/char2"* ]]; then
 
       echo "Moving '$d' to '$DEST_DIR2'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR2"
@@ -69,12 +69,12 @@ IFS=$'\n'
 done
 }
 
-function movestring3() {
+function move3() {
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
 
-    if [[ $d = *"string3"* ]]; then
+    if [[ $d = *"int/char3"* ]]; then
 
       echo "Moving '$d' to '$DEST_DIR3'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR3"
@@ -83,12 +83,12 @@ IFS=$'\n'
 done
 }
 
-function movestring4() {
+function move4() {
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
 
-    if [[ $d = *"string4"* ]]; then
+    if [[ $d = *"int/char4"* ]]; then
 
       echo "Moving '$d' to '$DEST_DIR4'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR4"
@@ -99,10 +99,10 @@ done
 
 function postMoveCheck() {
 
-local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "integer/character1|integer/character2|integer/character3|integer/character4" | wc -l)
+local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "int/char1|int/char2|int/char3|int/char4" | wc -l)
 
 if [ "$CHECK_DIR" -eq "0" ]; then
-  echo "'All integer/character1'/'integer/character2'/'integer/character3' and 'integer/character4' directories successfully moved"
+  echo "'All int/char1'/'int/char2'/'int/char3' and 'int/char4' directories successfully moved"
   echo
 
 else
@@ -125,27 +125,27 @@ cd $SRC_DIR
 
 #find * -maxdepth 0 -type d > /tmp/directories.txt
 
-echo "Checking for int/char one in '$SRC_DIR'..."
+echo "Checking for int/char1 in '$SRC_DIR'..."
 echo "--------------------------------------"
-movestring1
-echo "--------------------------------------"
-
-echo
-echo "Checking for int/char two in '$SRC_DIR'..."
-echo "--------------------------------------"
-movestring2
+move1
 echo "--------------------------------------"
 
 echo
-echo "Checking for int/char three in '$SRC_DIR'..."
+echo "Checking for int/char2 in '$SRC_DIR'..."
 echo "--------------------------------------"
-movestring3
+move2
 echo "--------------------------------------"
 
 echo
-echo "Checking for int/char four in '$SRC_DIR'..."
+echo "Checking for int/char3 in '$SRC_DIR'..."
 echo "--------------------------------------"
-movestring4
+move3
+echo "--------------------------------------"
+
+echo
+echo "Checking for int/char4 in '$SRC_DIR'..."
+echo "--------------------------------------"
+move4
 echo "--------------------------------------"
 
 echo "Checking all directories have been moved successfully..."

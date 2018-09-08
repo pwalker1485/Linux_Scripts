@@ -44,9 +44,9 @@ checkDirectory
 
 cd $SRC_DIR
 
-find * -maxdepth 0 -type f > /tmp/tvfilelisting.txt
+find * -maxdepth 0 -type f > /tmp/filelisting.txt
 
-FILELISTING="/tmp/tvfilelisting.txt"
+FILELISTING="/tmp/filelisting.txt"
 
 IFS=$'\n'
 for FILE in $(cat $FILELISTING); do
