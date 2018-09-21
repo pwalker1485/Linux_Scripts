@@ -25,9 +25,9 @@
 # Wilcards are used so that any directories that includes the integers/characters
 # at any point are moved
 
-#########################
-#       Variables       #
-#########################
+########################################################################
+#                            Variables                                 #
+########################################################################
 
 # Directory to move directories/files from
 SRC_DIR="/path/to/source/directory"
@@ -41,11 +41,12 @@ DEST_DIR2="/destination/folder/for/integer/character/two"
 DEST_DIR3="/destination/folder/for/integer/character/three"
 DEST_DIR4="/destination/folder/for/integer/character/four"
 
-#########################
-#       Functions       #
-#########################
+########################################################################
+#                            Functions                                 #
+########################################################################
 
-function checkDownloadDirectory() {
+function checkDownloadDirectory ()
+{
 
 local ITEMS=$(ls $SRC_DIR | wc -l)
 
@@ -56,7 +57,8 @@ fi
 
 }
 
-function renameDirectories() {
+function renameDirectories ()
+{
 # write directory names to txt file
 find * -maxdepth 0 -type d > /tmp/directorylisting.txt
 
@@ -71,7 +73,8 @@ IFS=$'\n'
   done
 }
 
-function renameFiles() {
+function renameFiles ()
+{
 # re-populate directory names in txt file
 find * -maxdepth 0 -type d > /tmp/directorylisting.txt
 # write file names to txt file
@@ -89,7 +92,8 @@ IFS=$'\n'
   done
 }
 
-function move1() {
+function move1 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -102,7 +106,8 @@ IFS=$'\n'
 done
 }
 
-function move2() {
+function move2 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -116,7 +121,8 @@ IFS=$'\n'
 done
 }
 
-function move3() {
+function move3 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -130,7 +136,8 @@ IFS=$'\n'
 done
 }
 
-function move4() {
+function move4 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -144,7 +151,8 @@ IFS=$'\n'
 done
 }
 
-function postMoveCheck() {
+function postMoveCheck ()
+{
 
 local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "int/char1|int/char2|int/char3|int/char4" | wc -l)
 
@@ -161,9 +169,9 @@ fi
 
 }
 
-##########################
-#   script starts here   #
-##########################
+########################################################################
+#                         Script starts here                           #
+########################################################################
 
 checkDownloadDirectory
 

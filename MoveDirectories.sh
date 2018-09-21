@@ -13,9 +13,9 @@
 # Wilcards are used so that any directories that includes the integers/characters
 # at any point are moved
 
-#########################
-#       Variables       #
-#########################
+########################################################################
+#                            Variables                                 #
+########################################################################
 
 # Directory to move directories/files from
 SRC_DIR="/path/to/source/directory"
@@ -27,11 +27,12 @@ DEST_DIR4="/destination/folder/for/integer/character/four"
 #Temp text file
 #FILMLIST="/tmp/directories.txt"
 
-#########################
-#       Functions       #
-#########################
+########################################################################
+#                            Functions                                 #
+########################################################################
 
-function checkDirectory() {
+function checkDirectory ()
+{
 
 local ITEMS=$(ls $SRC_DIR | wc -l)
 
@@ -42,7 +43,8 @@ fi
 
 }
 
-function move1() {
+function move1 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -55,7 +57,8 @@ IFS=$'\n'
 done
 }
 
-function move2() {
+function move2 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -69,7 +72,8 @@ IFS=$'\n'
 done
 }
 
-function move3() {
+function move3 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -83,7 +87,8 @@ IFS=$'\n'
 done
 }
 
-function move4() {
+function move4 ()
+{
 IFS=$'\n'
 #  for d in $(cat $FILMLIST); do
   for d in */; do
@@ -97,7 +102,8 @@ IFS=$'\n'
 done
 }
 
-function postMoveCheck() {
+function postMoveCheck ()
+{
 
 local CHECK_DIR=$(find "$SRC_DIR" -type d | egrep "int/char1|int/char2|int/char3|int/char4" | wc -l)
 
@@ -114,9 +120,9 @@ fi
 
 }
 
-##########################
-#   script starts here   #
-##########################
+########################################################################
+#                         Script starts here                           #
+########################################################################
 
 # Check to see if any files or folders exist before executing commands
 checkDirectory

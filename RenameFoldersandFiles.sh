@@ -14,9 +14,9 @@
 
 # SRC_DIR variable can be changed based on the requirements
 
-#########################
-#       Variables       #
-#########################
+########################################################################
+#                            Variables                                 #
+########################################################################
 
 # Source directory
 SRC_DIR="/path/to/source/directory"
@@ -25,11 +25,12 @@ DIRLISTING="/tmp/directorylisting.txt"
 # text file listing all files contained within those directories
 FILELISTING="/tmp/filelisting.txt"
 
-#########################
-#       Functions       #
-#########################
+########################################################################
+#                            Functions                                 #
+########################################################################
 
-function checkDirectory() {
+function checkDirectory ()
+{
 
 local ITEMS=$(ls $SRC_DIR | wc -l)
 
@@ -40,9 +41,9 @@ fi
 
 }
 
-##########################
-#   script starts here   #
-##########################
+########################################################################
+#                         Script starts here                           #
+########################################################################
 
 # Check to see if any files or folders exist before executing commands
 checkDirectory

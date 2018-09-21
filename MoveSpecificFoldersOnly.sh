@@ -15,18 +15,19 @@
 # to contain those integers/characters within parentheses to the destination
 # directory
 
-#########################
-#       Variables       #
-#########################
+########################################################################
+#                            Variables                                 #
+########################################################################
 
 #Directory to move directories/files from
 SRC_DIR="/path/to/source/directory"
 
-#########################
-#       Functions       #
-#########################
+########################################################################
+#                            Functions                                 #
+########################################################################
 
-function checkDirectory() {
+function checkDirectory ()
+{
 
 local ITEMS=$(ls $SRC_DIR | wc -l)
 
@@ -37,7 +38,8 @@ fi
 
 }
 
-function postMoveCheck() {
+function postMoveCheck ()
+{
 
 local CHECK_DIR=$(ls "$SRC_DIR" | grep "$FILM" | wc -l)
 
@@ -54,9 +56,9 @@ fi
 
 }
 
-##########################
-#   script starts here   #
-##########################
+########################################################################
+#                         Script starts here                           #
+########################################################################
 
 # Check to see if any files or folders exist before executing commands
 checkDirectory
