@@ -50,8 +50,9 @@ IFS=$'\n'
   for d in */; do
 
     if [[ $d = *"int/char1"* ]]; then
-      echo "Moving '$d' to '$DEST_DIR1'"
+
       mv "$SRC_DIR"/"$d" "$DEST_DIR1"
+      echo "Moved '$d' to '$DEST_DIR1'"
 
   fi
 done
@@ -65,8 +66,8 @@ IFS=$'\n'
 
     if [[ $d = *"int/char2"* ]]; then
 
-      echo "Moving '$d' to '$DEST_DIR2'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR2"
+      echo "Moved '$d' to '$DEST_DIR2'"
 
   fi
 done
@@ -80,8 +81,8 @@ IFS=$'\n'
 
     if [[ $d = *"int/char3"* ]]; then
 
-      echo "Moving '$d' to '$DEST_DIR3'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR3"
+      echo "Moved '$d' to '$DEST_DIR3'"
 
   fi
 done
@@ -95,8 +96,8 @@ IFS=$'\n'
 
     if [[ $d = *"int/char4"* ]]; then
 
-      echo "Moving '$d' to '$DEST_DIR4'"
       mv "$SRC_DIR"/"$d" "$DEST_DIR4"
+      echo "Moved '$d' to '$DEST_DIR4'"
 
   fi
 done
