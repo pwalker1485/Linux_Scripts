@@ -19,6 +19,7 @@ TimeDate=$(date)
 /bin/echo "*UPDATE SCRIPT*: $TimeDate"
 /bin/echo "---------------------------------------------------"
 
+/bin/echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 /usr/bin/apt-get -y update && /usr/bin/apt-get -y upgrade && /usr/bin/apt-get -y dist-upgrade
 
 /bin/echo "---------------------------------------------------"
