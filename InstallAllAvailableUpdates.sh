@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################################################
-#                Install all available updates                         #
+#           Install all available updates & upgrades                   #
 ################### Written by Phil Walker #############################
 ########################################################################
 
@@ -30,5 +30,10 @@ TimeDate=$(date)
 
 /bin/echo "---------------------------------------------------"
 /bin/echo "*UPDATE SCRIPT*: All old .deb files removed and package cache cleared"
+
+#Rebooting system, due to some updates/upgrades requiring a reboot to complete
+/bin/echo "---------------------------------------------------"
+/bin/echo "*UPDATE SCRIPT*: Rebooting system to complete updates..."
+/sbin/shutdown -r now
 
 exit 0
