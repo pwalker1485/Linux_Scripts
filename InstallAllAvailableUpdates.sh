@@ -33,7 +33,7 @@ TimeDate=$(date)
 
 #Rebooting system, due to some updates/upgrades requiring a reboot to complete
 /bin/echo "---------------------------------------------------"
-/bin/echo "*UPDATE SCRIPT*: Rebooting system to complete updates..."
+/bin/echo "*UPDATE SCRIPT*: Rebooting system to complete updates and upgrades..."
 /sbin/shutdown -r now
 
 exit 0
